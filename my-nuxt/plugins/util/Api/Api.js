@@ -1,9 +1,8 @@
 import Axios from 'axios'
+import config from './config'
 
 // 设置请求时长
-const axios = Axios.create({
-  timeout: 10 * 1000
-})
+const axios = Axios.create(config)
 
 // 请求拦截器
 axios.interceptors.request.use(

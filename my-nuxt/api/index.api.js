@@ -1,7 +1,7 @@
 // import Vue from 'vue'
-import axios from '../../plugins/util/Api/Api.js'
+import axios from '../plugins/util/Api/Api.js'
 
-const http = 'http://127.0.0.1:3002/api'
+const http = 'http://127.0.0.1:3000/api'
 class Api {
   // 登录
   static login (data) {

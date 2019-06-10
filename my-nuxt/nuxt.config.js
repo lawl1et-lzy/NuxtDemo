@@ -39,31 +39,22 @@ module.exports = {
       src: '~plugins/element-ui/element-ui.js',
       ssr: true,
     },
-    // {
-    //   src: '~/plugins/util/Api/Api.js',
-    //   ssr: true,
-    // }
   ],
-  // axios: {
-  //   debug: process.env._ENV =="production"?false:true,
-  //   withCredentials:true,
-  // },
-  // proxy: {
-  //   '/api': {
-  //     target: 'https://127.0.0.1:3001', 
-  //     changeOrigin: true,
-  //     secure: false
-  //     // pathRewrite: {
-  //     //   '^/api': '/api',
-  //     // },
-  //   }
-  // },
+  axios: {
+    proxy: true,
+  },
+  proxy: {
+    '/api': {
+      target: 'https://127.0.0.1:3001', 
+      secure: false,
+    }
+  },
   /*
   ** Nuxt.js modules
   */
   modules: [
-    // '@nuxtjs/axios',
-    // '@nuxtjs/proxy'
+    '@nuxtjs/axios',
+    '@nuxtjs/proxy',
     ['cookie-universal-nuxt', { alias: 'cookie' }]
   ],
 

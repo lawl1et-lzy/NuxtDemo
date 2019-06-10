@@ -15,18 +15,23 @@
 </template>
 
 <script>
-import Api from '../../assets/api/index.api'
+import Api from '../../api/index.api'
 export default {
   name: 'Index',
+  data() {
+    return {
+      user: ''
+    }
+  },
   layout: 'lawl1et',
-  async asyncData ({ params }) {
+  async asyncData ( content ) {
     let req = {
       "userName": "niya",
       "userPwd": "123456"
     }
     let a = await Api.login(req)
     return a
-  },
+  }
 }
 </script>
 
