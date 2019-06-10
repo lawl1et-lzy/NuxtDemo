@@ -64,6 +64,7 @@ module.exports = {
   modules: [
     // '@nuxtjs/axios',
     // '@nuxtjs/proxy'
+    ['cookie-universal-nuxt', { alias: 'cookie' }]
   ],
 
   /*

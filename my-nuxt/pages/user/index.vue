@@ -26,7 +26,7 @@ export default {
     }
     let a = await Api.login(req)
     return a
-  }
+  },
 }
 </script>
 
