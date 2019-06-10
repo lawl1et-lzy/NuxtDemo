@@ -1,7 +1,4 @@
 import Axios from 'axios'
-import Vue from 'vue'
-
-Vue.prototype.http = '/api'
 
 // 设置请求时长
 const axios = Axios.create({
