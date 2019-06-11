@@ -21,7 +21,7 @@
 import Api from '~/api/index.api'
 export default {
   name: 'Login',
-  layout: 'lawl1et',
+  layout: 'empty',
   data () {
     return {
       account: '',
@@ -59,8 +59,7 @@ export default {
         })
     },
     goback () {
-      // this.$router.go(-1)
-
+      this.$router.go(-1)
     }
   },
   created () {

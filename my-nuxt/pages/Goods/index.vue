@@ -64,7 +64,6 @@
     </div>
   </div>
 </template>
-
 <script>
 import Api from '~/api/index.api'
 const ORDER_BY_ASC = {
@@ -80,6 +79,7 @@ const PRICE_BETWEEN = {
 }
 export default {
   name: 'Goods',
+  layout: 'lawl1et',
   data () {
     return {
       goods: [], // 商品列表
@@ -95,23 +95,19 @@ export default {
       user: '' // 用户信息
     }
   },
-  // async asyncData () {
-
-  //   return 
-  // },
-  // watch: {
-  //   sort: {
-  //     handler (n) {
-  //       if (n) {
-  //         console.log('sort', n)
-  //         this.goods = []
-  //         this.page = 0
-  //         this.getGoodsList()
-  //       }
-  //     },
-  //     deep: true
-  //   }
-  // },
+  watch: {
+    sort: {
+      handler (n) {
+        if (n) {
+          console.log('sort', n)
+          this.goods = []
+          this.page = 0
+          this.getGoodsList()
+        }
+      },
+      deep: true
+    }
+  },
   methods: {
     // 加载更多
     loadMore () {
@@ -280,6 +276,7 @@ export default {
             margin-bottom: 6px;
           }
           .cont-button{
+            cursor: pointer;
             width: 100%;
             height: 60px;
             display: flex;

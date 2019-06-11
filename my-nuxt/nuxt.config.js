@@ -18,7 +18,7 @@ module.exports = {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
-
+  loading: { color: '#fff' },   //  页面进度条
   /*
   ** Customize the progress-bar color
   */
@@ -37,7 +37,11 @@ module.exports = {
   plugins: [
     {
       src: '~plugins/element-ui/element-ui.js',
-      ssr: true,
+      ssr: false,
+    },
+    {
+      src: '~plugins/vue-infinite-scroll/index.js',
+      ssr: false,
     },
   ],
   axios: {
@@ -62,6 +66,7 @@ module.exports = {
   ** Build configuration
   */
   build: {
+    vendor: ['axios'],
     /*
     ** You can extend webpack config here
     */
