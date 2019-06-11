@@ -2,21 +2,10 @@
 
 > My extraordinary Nuxt.js project
 
-## Build Setup
 
-``` bash
-# install dependencies
-$ npm install
 
-# serve with hot reload at localhost:3000
-$ npm run dev
-
-# build for production and launch server
-$ npm run build
-$ npm start
-
-# generate static project
-$ npm run generate
-```
-
-For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
+QA:
+Q: asyncData 服务器请求的axios封装
+  1. 需要携带cookie
+  2. 能否封装成一个axios，技能服务器端请求，也能客户端请求
+Q: 尝试使用nuxt 提供的 @axios插件 封装 axios 代码

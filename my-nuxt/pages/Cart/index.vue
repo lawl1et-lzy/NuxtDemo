@@ -19,7 +19,7 @@
         label="ITEMS"
         width="120">
         <template slot-scope="scope">
-          <img :src="require(`../../images/${scope.row.productImage}`)"/>
+          <img :src="require(`~/images/${scope.row.productImage}`)"/>
           {{ scope.row.productName }}
         </template>
       </el-table-column>

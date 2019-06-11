@@ -52,11 +52,13 @@ class Api {
     })
   }
   // 获取用户地址
-  static getAddress (data) {
+  static getAddress (cookie) {
     return axios({
       method: 'POST',
       url: `${http}/address`,
-      data
+      headers: {
+        cookie: cookie
+      }
     })
   }
   // 设置默认地址

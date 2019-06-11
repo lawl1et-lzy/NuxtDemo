@@ -31,25 +31,24 @@ export default {
       addressList: []
     }
   },
+  async asyncData(context) {
+    let cookie;
+    if(context.req) {
+      cookie = context.req.headers.cookie
+      let { response, data } = await Api.getAddress(cookie)
+      if (!response.error_code) {
+        let addressList = data || []
+        let index = addressList.findIndex(item => {
+          return item.isDefault
+        })
+        if (~index) {
+          addressList.unshift(...addressList.splice(index, 1))
+        }
+        return { addressList }
+      }
+    }
+  },
   methods: {
-    fetchAddress () {
-      Api.getAddress()
-        .then(res => {
-          let { response, data } = res
-          if (!response.error_code) {
-            this.addressList = data
-            let index = this.addressList.findIndex(item => {
-              return item.isDefault
-            })
-            if (~index) {
-              this.addressList.unshift(...this.addressList.splice(index, 1))
-            }
-          }
-        })
-        .catch(err => {
-          console.log('fetchAddress err', err)
-        })
-    },
     // 设置默认的地址
     handleDefaultAddress (addr) {
       this.addressList.forEach(item => {
@@ -96,9 +95,6 @@ export default {
         })
     }
   },
-  created () {
-    this.fetchAddress()
-  }
 }
 </script>
 
