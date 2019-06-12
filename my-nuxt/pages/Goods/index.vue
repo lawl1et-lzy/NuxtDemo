@@ -20,7 +20,7 @@
     <section class="goods-body">
       <div class="body-subnav">
         <div class="subnav-title">
-          PRICE:
+          PRICE: {{ prdIds }}
         </div>
         <div class="subnav-between">
           <!-- 价格区间 -->
@@ -66,6 +66,7 @@
 </template>
 <script>
 import Api from '~/api/index.api'
+import { mapState, mapMutations } from 'vuex'
 const ORDER_BY_ASC = {
   'false': '-1',
   'true': '1'
@@ -95,6 +96,15 @@ export default {
       user: '' // 用户信息
     }
   },
+  computed: {
+    ...mapState({
+      prdIds: (state) => state.prdIds
+    })
+    // prdIds() {
+    //   console.log()
+    //   return this.$store.state.prdIds
+    // }
+  },
   watch: {
     sort: {
       handler (n) {
@@ -109,6 +119,7 @@ export default {
     }
   },
   methods: {
+    ...mapMutations(['increment']),
     // 加载更多
     loadMore () {
       if (!this.stopApiReq) {
@@ -151,6 +162,7 @@ export default {
     },
     // 添加购物车
     handleCartAdd (pid) {
+      this.increment(Number(pid))
       if (!this.user) {
         this.$router.push({ path: '/login' })
         return false
